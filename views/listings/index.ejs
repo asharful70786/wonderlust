@@ -1,0 +1,166 @@
+<% layout("./layouts/boilerplate.ejs") -%>
+<style>
+.custom-img-style {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+  width: 400px; /* Set width */
+  height: 400px; /* Set height */
+}
+
+.custom-img-style:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.ffilter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ffilter i {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.ffilter p {
+  margin: 0;
+}
+
+#Tax-toggle {
+  margin-bottom: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.gstplus {
+  display: none;
+  font-weight: bold;
+}
+
+
+
+</style>
+
+<div class="filters">
+  <div class="ffilter">
+    <i class="fa-solid fa-umbrella-beach"></i>
+    <p>beachFront</p>
+  </div>
+
+  <div class="ffilter">
+    <i class="fa-solid fa-water-ladder"></i>
+    <p>Amazingpool</p>
+  </div>
+
+  <div class="ffilter">
+    <i class="fa-solid fa-plane-arrival"></i>
+    <p>PLain-arrival</p>
+  </div>
+  <div class="ffilter">
+    <i class="fa-solid fa-cable-car"></i>
+    <p>Cabin-car</p>
+  </div>
+  <div class="ffilter">
+    <i class="fa-brands fa-gripfire"></i>
+    <p>Tranding</p>
+  </div>
+  <!-- <div class="ffilter">
+    <i class="fa-solid fa-igloo"></i>
+    <p>IIGlo</p>
+  </div> -->
+  <div class="ffilter">
+    <i class="fa-solid fa-wine-bottle"></i>
+    <p>Wind-Shop</p>
+  </div>
+
+  <div class="ffilter">
+    <i class="fa-solid fa-fish"></i>
+    <p>Fish-tank</p>
+  </div>
+
+ <div class="ffilter">
+    <i class="fa-solid fa-ice-cream"></i>
+    <p>Ice-creamshop</p>
+  </div>
+  <!-- <div class="ffilter">
+    <i class="fa-solid fa-pizza-slice"></i>
+    <p>Pizzahut</p>
+  </div>
+  <div class="ffilter">
+    <i class="fa-solid fa-money-bills"></i>
+    <p>Money-exchange</p>
+  </div> -->
+  <div class="ffilter">
+    <i class="fa-solid fa-person-biking"></i>
+    <p>Biking</p>
+  </div>
+  <div id="Tax-toggle">
+    <div class="form-check form-switch form-check-reverse">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="flexSwitchCheckReverse"
+      />
+      <label class="form-check-label" for="flexSwitchCheckReverse"
+        >Tax-calculation</label
+      >
+    </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cals-md-3 row-cols-sm-1">
+  <% for(let list of alllisting) {%>
+  <a href="/listings/<%= list._id %>" class="listing-link">
+    <div class="card col">
+      <img
+        src="<%= list.image.url%>"
+        class="card-img-top"
+        alt="image"
+      />
+      <div class="card-body">
+        <div class="card-img-overlay">4.8*</div>
+
+        <h5 class="card-title"><b>"<%= list.title %>" </b></h5>
+        <p class="card-text">
+          Price : &#8377;<%= list.price %>/Night
+          <span class="gstplus"> &nbsp +18% &nbsp GSt</span>
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+
+<script>
+let tax_info = document.getElementById("Tax-toggle");
+tax_info.addEventListener("click", () => {
+  let gstplus = document.getElementsByClassName("gstplus");
+  for (let gst of gstplus) {
+    if (gst.style.display === "none" || gst.style.display === "") {
+      gst.style.display = "inline";
+    } else {
+      gst.style.display = "none";
+    }
+  }
+});
+
+</script>

@@ -1,0 +1,71 @@
+<% layout("./layouts/boilerplate.ejs") -%>
+
+
+    <div class="row">
+        <div  class="row g-3 align-items-center ">
+            <h2>Creat a New listing</h2>
+            <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div>
+
+                    <label for="title" class="form-label"> Title </label> <br>
+                    <input type="text" name="listing[title]" placeholder="enter title" class="form-control" required>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label"></label>
+                    <textarea name="listing[description]" required placeholder="enter details"
+                        class="form-control"></textarea>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input  name="listing[price]" placeholder="Price" class="form-control" required>
+                    
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label for="catagory" class="form-label">Town</label>
+                    <div>
+                        <input type="radio" id="town1" name="listing[catagory]" class="form-check-input" value="malda" required>
+                        <label for="town1" class="form-check-label">malda</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="town2" name="listing[catagory]" class="form-check-input" value="Town2" required>
+                        <label for="town2" class="form-check-label">Mursidibad</label>
+                    </div>
+                     Add more radio options as needed 
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Choose a valid town</div>
+                </div> -->
+                
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">UPLODE IMAGE</label >
+                    <input name="listing[image]" type="file" class="form-control" required>
+                    <div class="valid-feedback">looks good</div>
+                </div>
+
+                
+
+
+
+
+                <div class="mb-3">
+                    <label for="location" class="form-label"> Location</label>
+                    <input type="text" name="listing[location]" placeholder="Location" class="form-control" required>
+                    <div class="invalid-feedback">choopse a valid location</div>
+                    <div class="valid-feedback">looks good</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="listing[country]" placeholder="Country" class="form-control" required>
+                    <div class="valid-feedback">looks good</div>
+                </div>
+
+
+                <button class="btn btn-dark">Submit</button>
+            </form>
+        </div>
+    </div>

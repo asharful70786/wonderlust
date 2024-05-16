@@ -1,0 +1,66 @@
+<% layout("./layouts/boilerplate.ejs") -%>
+
+        <h2>Edit Your Details</h2>
+        <form action="/listings/<%= data._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+
+            <div>
+                <label for="title" class="form-label">Title</label>
+                <input name="listing[title]" value="<%= data.title %>" class="form-control" required >
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">choopse a valid Title</div>
+            </div>
+
+            <div>
+                <label for="description" class="form-label">description</label>
+                <textarea name="listing[description]" class="form-control"
+                  cols="5"  required><%= data.description %> </textarea>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">write with in 50 words</div>
+            </div>
+
+
+            <div>
+                <label for="Price" class="form-label">price</label>
+                <input type="number" name="listing[price]" value="<%= data.price%>" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">price cant be negative!</div>
+
+            </div>
+
+
+
+
+
+            <div>
+                <label for="Location" class="form-label">location</label>
+                <input type="text" name="listing[location]" value="<%= data.location %>" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">choopse a valid location</div>
+            </div>
+  
+             <!-- <div>
+        
+             </div> -->
+            <div>
+                <label for="image" class="form-label">EDIT YOUR IMAGE</label>
+               <br>
+               <input name="listing[image]" type="file"  class="form-control" id="image" placeholder="uploud your new image" >
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+           
+
+            <div>
+                <label for="country" class="form-label">country</label>
+                <input type="text" name="listing[country]" value="<%= data.country %>" class="form-control"  required >
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">choopse a valid country</div>
+            </div>
+            <br>
+
+
+
+            <button class="btn btn-danger">Editing</button>
+        </form>
+
+       
+  

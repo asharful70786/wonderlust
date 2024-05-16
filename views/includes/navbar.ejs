@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn-scarch {
+        background-color: #ff0000;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        margin: 5px;
+      }
+      .btn-scarch i {
+        margin: 5px;
+      }
+      .btn-scarch:hover {
+        background-color: #ff0000;
+      }
+      .scarch {
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-sm bg-body-tertiary border-bottom sticky-top"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/listings"
+          ><i class="fa-regular fa-compass"></i
+        ></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/listings">Explore</a>
+          </div>
+          <!-- scarch button  -->
+          <div class="navbar-nav ms-auto">
+            <nav class="navbar bg-body-tertiary">
+              <div class="container-fluid">
+                <form class="d-flex" role="search">
+                  <input
+                    class="form-control me-2 scarch"
+                    type="search"
+                    placeholder="Search destination"
+                  />
+                  <button class="btn btn-scarch" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                  </button>
+                </form>
+              </div>
+            </nav>
+          </div>
+
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="/listings/new">Airbnb Your home </a>
+            <% if (!currentUser) { %>
+            <a class="nav-link" href="/login"><b>login</b></a>
+            <a class="nav-link" href="/singup"><B>sing-up</B></a>
+            <% } %> <% if(currentUser) { %>
+            <a class="nav-link" href="/logout">Log-out</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
